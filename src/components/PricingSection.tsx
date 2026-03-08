@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Check, Crown, Sparkles, Star } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const plans = [
   {
