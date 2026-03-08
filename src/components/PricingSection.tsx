@@ -55,6 +55,15 @@ const plans = [
 ];
 
 const PricingSection = () => {
+  const { toast } = useToast();
+
+  const handlePlanClick = (planName: string) => {
+    toast({
+      title: "🚀 Quase lá!",
+      description: `Você escolheu o plano ${planName}. Em breve o checkout estará disponível!`,
+    });
+  };
+
   return (
     <section id="precos" className="py-24">
       <div className="container px-6">
