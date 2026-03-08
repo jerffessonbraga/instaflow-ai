@@ -126,7 +126,8 @@ const PricingSection = () => {
               </ul>
 
               <button
-                className={`mt-8 w-full rounded-xl py-3 font-semibold transition hover:scale-[1.02] ${
+                onClick={() => handlePlanClick(plan.name)}
+                className={`mt-8 w-full rounded-xl py-3 font-semibold transition hover:scale-[1.02] cursor-pointer ${
                   plan.popular
                     ? "bg-primary text-primary-foreground shadow-[var(--shadow-glow)]"
                     : plan.founder
