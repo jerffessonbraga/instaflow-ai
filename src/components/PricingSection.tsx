@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Check, Crown, Sparkles, Star } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const plans = [
   {
@@ -54,6 +55,15 @@ const plans = [
 ];
 
 const PricingSection = () => {
+  const { toast } = useToast();
+
+  const handlePlanClick = (planName: string) => {
+    toast({
+      title: "🚀 Quase lá!",
+      description: `Você escolheu o plano ${planName}. Em breve o checkout estará disponível!`,
+    });
+  };
+
   return (
     <section id="precos" className="py-24">
       <div className="container px-6">
@@ -116,7 +126,8 @@ const PricingSection = () => {
               </ul>
 
               <button
-                className={`mt-8 w-full rounded-xl py-3 font-semibold transition hover:scale-[1.02] ${
+                onClick={() => handlePlanClick(plan.name)}
+                className={`mt-8 w-full rounded-xl py-3 font-semibold transition hover:scale-[1.02] cursor-pointer ${
                   plan.popular
                     ? "bg-primary text-primary-foreground shadow-[var(--shadow-glow)]"
                     : plan.founder
